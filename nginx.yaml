@@ -7,7 +7,7 @@ spec:
   selector:
     app: nginx
   ports:
-  - protocol: TCP
+  - name: HTTP
     port: 80
     targetPort: 80
 ---
@@ -29,7 +29,7 @@ spec:
       - name: nginx
         image: nginx:alpine
         ports:
-        - containerPort: 80
+          - containerPort: 80
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d

@@ -7,7 +7,7 @@ spec:
   selector:
     app: frontend
   ports:
-  - protocol: TCP
+  - name: flask
     port: 5000
     targetPort: 5000
 ---
@@ -31,4 +31,4 @@ spec:
       - name: frontend
         image: htrvolker/python-frontend:red
         ports:
-        - containerPort: 5000
+          - containerPort: 5000

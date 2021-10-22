@@ -7,7 +7,7 @@ spec:
   selector:
     app: backend 
   ports:
-  - protocol: TCP
+  - name: flask
     port: 5001
     targetPort: 5001
 ---
@@ -31,4 +31,4 @@ spec:
       - name: backend
         image: htrvolker/python-backend:letters
         ports:
-        - containerPort: 5001
+          - containerPort: 5001
