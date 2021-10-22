@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: nginx
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: nginx
   ports:
   - name: http
-    port: 5005
+    port: 80
     targetPort: 80
 ---
 apiVersion: apps/v1
@@ -33,6 +33,17 @@ spec:
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d
+        env: 
+        - name: USER
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: password
       volumes:
       - name: nginx-config
         configMap:
