@@ -47,7 +47,7 @@ data:
     server {
         listen 80;
         location / {
-            return "http://frontend:5000";
+            proxy_pass http://frontend:5000/;
         }
     }
 
