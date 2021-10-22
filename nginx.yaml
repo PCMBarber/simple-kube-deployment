@@ -33,17 +33,6 @@ spec:
         volumeMounts:
         - name: nginx-config
           mountPath: /etc/nginx/conf.d
-        env: 
-        - name: USER
-          valueFrom:
-            secretKeyRef:
-              name: credentials
-              key: username
-        - name: PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: credentials
-              key: password
       volumes:
       - name: nginx-config
         configMap:
